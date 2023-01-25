@@ -23,6 +23,11 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
+//Server Deployment checking
+app.get('/', async (req,res) => {
+  res.send("Server is running");
+})
+
 //User Registration
 app.post(`/api/register`, async (req, res) => {
   try {
