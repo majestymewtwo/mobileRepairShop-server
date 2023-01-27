@@ -118,6 +118,10 @@ app.post(`/api/repair`, async (req, res) => {
       description: req.body.description,
       type: req.body.type,
       email: req.body.email,
+      order: req.body.order,
+      collect: req.body.collect,
+      repair: req.body.repair,
+      deliver: req.body.deliver,
     });
     res.json({ status: "ok", repair: true });
   } catch (err) {
