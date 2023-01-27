@@ -106,8 +106,7 @@ app.post(`/api/contact`, async (req, res) => {
   }
 });
 
-
-//Repair
+//Book a new repair
 app.post(`/api/repair`, async (req, res) => {
   try {
     const newRepair = await Repair.create({
@@ -122,6 +121,7 @@ app.post(`/api/repair`, async (req, res) => {
       collect: req.body.collect,
       repair: req.body.repair,
       deliver: req.body.deliver,
+      date: req.body.date,
     });
     res.json({ status: "ok", repair: true });
   } catch (err) {
@@ -143,6 +143,6 @@ app.post(`/api/repairs`, async (req, res) => {
   }
 });
 
-app.listen(process.env.PORT || 1337, (req,res) => {
+app.listen(1337, (req,res) => {
   console.log("Server Started");
 })

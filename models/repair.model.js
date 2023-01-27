@@ -13,6 +13,7 @@ const Repair = new mongoose.Schema(
     collect: { type: Boolean, default: false },
     repair: { type: Boolean, default: false },
     deliver: { type: Boolean, default: false },
+    date: { type: String, required: true },
   },
   { collection: "repair-requests" }
 );
