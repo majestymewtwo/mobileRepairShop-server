@@ -146,6 +146,6 @@ app.post(`/api/repairs`, async (req, res) => {
   }
 });
 
-app.listen(1337 || process.env.port, (req, res) => {
+app.listen(1337 || process.env.PORT, (req, res) => {
   console.log("Server Started");
 });
