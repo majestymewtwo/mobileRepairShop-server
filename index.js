@@ -10,23 +10,26 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const url =
-  "mongodb+srv://server-user:H5WRMqSOBMwAPWqM@mobilerepairshop.una1bdt.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://server-user:z3QF5De8oq2AUDU5@mobilerepairshop.una1bdt.mongodb.net/?retryWrites=true&w=majority";
 const connectionParams = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
-}
+};
 
 //Database Server Port
-mongoose.connect(url, connectionParams).then(()=>console.info("Connected to DB")).catch((e)=>console.info("Error : ", e));
+mongoose
+  .connect(url, connectionParams)
+  .then(() => console.info("Connected to DB"))
+  .catch((e) => console.info("Error : ", e));
 
 app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 //Server Deployment checking
-app.get('/', async (req,res) => {
+app.get("/", async (req, res) => {
   res.send("Server is running");
-})
+});
 
 //User Registration
 app.post(`/api/register`, async (req, res) => {
@@ -41,10 +44,10 @@ app.post(`/api/register`, async (req, res) => {
       email: req.body.email,
       password: newPassword,
     });
-    res.json({status:'ok', user:true});
+    res.json({ status: "ok", user: true });
   } catch (err) {
     console.log(err);
-    res.json({status: 'error', user:false});
+    res.json({ status: "error", user: false });
   }
 });
 
@@ -143,6 +146,6 @@ app.post(`/api/repairs`, async (req, res) => {
   }
 });
 
-app.listen(1337, (req,res) => {
+app.listen(1337 || process.env.port, (req, res) => {
   console.log("Server Started");
-})
+});
