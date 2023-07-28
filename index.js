@@ -10,7 +10,7 @@ const jwt = require("jsonwebtoken");
 const bcrypt = require("bcryptjs");
 
 const url =
-  "mongodb+srv://server-user:z3QF5De8oq2AUDU5@mobilerepairshop.una1bdt.mongodb.net/?retryWrites=true&w=majority";
+  "mongodb+srv://server-user:4FzXB5lmkfPpL60P@mobilerepairshop.una1bdt.mongodb.net/";
 const connectionParams = {
   useNewUrlParser: true,
   useUnifiedTopology: true,
